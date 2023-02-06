@@ -21,7 +21,8 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable(value = "id") Long productId) {
-        return productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
+
+        return productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
     }
 
     @PostMapping("/products")
@@ -31,7 +32,7 @@ public class ProductController {
 
     @PutMapping("/products/{id}")
     public Product updateProduct(@PathVariable(value = "id") Long productId, @RequestBody Product productDetails) {
-        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
         product.setName(productDetails.getName());
         product.setPrice(productDetails.getPrice());
         return productRepository.save(product);
@@ -39,7 +40,7 @@ public class ProductController {
 
     @DeleteMapping("/products/{id}")
     public ResponseEntity<?> deleteProduct(		@PathVariable(value = "id") Long productId) {
-        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
         productRepository.delete(product);
         return ResponseEntity.ok().build();
     }

@@ -6,7 +6,7 @@ public class ResourceNotFoundException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public ResourceNotFoundException(String resourceName, String resourceParam, Long resourceParamValue) {
-        super(resourceName+" "+resourceParam+" "+Long.toString(resourceParamValue));
+    public ResourceNotFoundException() {
+        super("404 NOT_FOUND");
     }
 }
