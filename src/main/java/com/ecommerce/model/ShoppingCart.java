@@ -20,5 +20,15 @@ public class ShoppingCart {
     @ManyToMany
     private List<Product> products;
 
-    // Getters and setters omitted for brevity
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
 }
