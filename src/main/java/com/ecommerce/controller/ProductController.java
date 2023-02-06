@@ -1,5 +1,6 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.URI;
 import com.ecommerce.exception.ResourceNotFoundException;
 import com.ecommerce.model.Product;
 import com.ecommerce.repository.ProductRepository;
@@ -14,23 +15,23 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/products")
+    @GetMapping(URI.PRODUCTS)
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping(URI.PRODUCT_ID)
     public Product getProductById(@PathVariable(value = "id") Long productId) {
 
         return productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
     }
 
-    @PostMapping("/products")
+    @PostMapping(URI.PRODUCTS)
     public Product createProduct(@RequestBody Product product) {
         return productRepository.save(product);
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping(URI.PRODUCT_ID)
     public Product updateProduct(@PathVariable(value = "id") Long productId, @RequestBody Product productDetails) {
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
         product.setName(productDetails.getName());
@@ -38,7 +39,7 @@ public class ProductController {
         return productRepository.save(product);
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping(URI.PRODUCT_ID)
     public ResponseEntity<?> deleteProduct(		@PathVariable(value = "id") Long productId) {
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException());
         productRepository.delete(product);
