@@ -1,13 +1,10 @@
 package com.ecommerce.model;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToOne;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "ShoppingCarts")
 public class ShoppingCart {
 
     @Id

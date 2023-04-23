@@ -1,0 +1,10 @@
+com/ecommerce/EcommerceApplication.class
+com/ecommerce/model/Product.class
+com/ecommerce/URI.class
+com/ecommerce/model/Order.class
+com/ecommerce/repository/ProductRepository.class
+com/ecommerce/service/ProductService.class
+com/ecommerce/controller/ProductController.class
+com/ecommerce/exception/ResourceNotFoundException.class
+com/ecommerce/model/ShoppingCart.class
+com/ecommerce/model/User.class
